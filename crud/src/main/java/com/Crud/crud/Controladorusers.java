@@ -1,5 +1,6 @@
 package com.Crud.crud;
 
+import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.mail.Authenticator;
+import jakarta.mail.Message;
+import jakarta.mail.PasswordAuthentication;
+import jakarta.mail.Session;
+import jakarta.mail.Transport;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 
 @RestController
 @RequestMapping({"/users"})
@@ -17,18 +25,21 @@ public class Controladorusers {
 	@Autowired
 	UserService service;
 	
-	@GetMapping("/usersLogin/{id}")
-	public User listarTodos(@PathVariable("id") String id){
-		return service.listarUser(id);
+	@GetMapping("/usersLogin/{email}")
+	public Paciente listarTodos(@PathVariable("email") String email){
+		Paciente p= service.listarUser(email);
+		return p;
 	}
 	
-	@GetMapping("/userExist/{id}")
-	public User buscarUser(@PathVariable("id") String id){
-		return service.listarUser(id);
+	@GetMapping("/userExist/{email}")
+	public Paciente buscarUser(@PathVariable("email") String email){
+		Paciente p= service.listarUser(email);
+		return p;
 	}
 	
 	@PostMapping
-	public User agregar(@RequestBody User u) {
+	public Paciente agregar(@RequestBody Paciente u) {
+		//agregar logica de generación del token.
 		return service.add(u);
 	}
 

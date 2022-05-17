@@ -1,5 +1,6 @@
 package com.Crud.crud;
 
+import java.util.Iterator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,23 +12,30 @@ public class UserServiceImp implements UserService{
 	private UserRepository repositorio;
 	
 	@Override
-	public User listarUser(String user) {
-		return repositorio.listarUser(user);
+	public Paciente listarUser(String email) {
+		return repositorio.listarUser(email);
 	}
 
 	@Override
-	public User edit(User u) {
+	public Paciente edit(Paciente u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User add(User u) {
+	public Paciente add(Paciente u) {
+		double token = (Math.random())*10000;
+		int guardar= (int) token;
+		u.setToken(guardar);
+		Mails m= new Mails();
+		m.mandarMaildeLogin(u);
+		
 		return repositorio.save(u);
 	}
 
 	@Override
-	public User buscarUser(String username) {
+	public Paciente buscarUser(String username) {
+		
 		return repositorio.buscarUser(username);
 	}
 

@@ -2,8 +2,8 @@ package com.Crud.crud;
 
 public interface UserService {
 	
-	User listarUser(String user);
-	User edit(User u);
-	User add(User u);
-	User buscarUser(String username);
+	Paciente listarUser(String email);
+	Paciente edit(Paciente u);
+	Paciente add(Paciente u);
+	Paciente buscarUser(String username);
 }
