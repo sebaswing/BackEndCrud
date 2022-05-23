@@ -37,6 +37,15 @@ public class Controladorusers {
 		return p;
 	}
 	
+	@GetMapping("/recuperarClave/{email}")
+	public void mandarClave (@PathVariable("email") String email) {
+		Paciente p= service.listarUser(email);
+		if(p!=null) {
+			Mails m = new Mails();
+			m.mandarMaildeRecuperarClave(p);
+		}
+	}
+	
 	@PostMapping
 	public Paciente agregar(@RequestBody Paciente u) {
 		//agregar logica de generación del token.
