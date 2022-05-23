@@ -12,14 +12,14 @@ import jakarta.mail.internet.MimeMessage;
 
 public class Mails {
 
+	private static String username = "a2afd109cb6249";// Completar con su username de mailtrap
+	private static String password = "6d25b411a8682e";// Completar con su password de mailtrap
+	
 	public void mandarMaildeLogin(Paciente p) {
 		try {
 			String from = "noreply@vacunassist.com";
 			String to = p.getEmail();
 
-			// credenciales
-			String username = "ae68dcf2cb5784"; // Completar con su username de mailtrap
-			String password = "cd2ada93762272"; // Completar con su password de mailtrap
 			
 			Properties props = new Properties();
 			props.put("mail.smtp.auth", "true");
