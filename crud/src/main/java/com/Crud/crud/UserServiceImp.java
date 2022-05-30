@@ -16,8 +16,7 @@ public class UserServiceImp implements UserService{
 
 	@Override
 	public Paciente edit(Paciente u) {
-		// TODO Auto-generated method stub
-		return null;
+		return repositorio.save(u);
 	}
 
 	@Override

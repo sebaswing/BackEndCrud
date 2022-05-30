@@ -68,7 +68,7 @@ public class Mails {
 		    message.setFrom(new InternetAddress(from, "VACUNASSIST"));
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 		    message.setSubject("Recuperar de clave");
-		    message.setText("tu clave es: " + p.getPassword());
+		    message.setText("tu clave es: " + p.getClave());
 		    Transport.send(message);
 		}
 		catch (Exception e) {
