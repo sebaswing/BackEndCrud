@@ -9,13 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import jakarta.mail.Authenticator;
-import jakarta.mail.Message;
-import jakarta.mail.PasswordAuthentication;
-import jakarta.mail.Session;
-import jakarta.mail.Transport;
-import jakarta.mail.internet.InternetAddress;
-import jakarta.mail.internet.MimeMessage;
 
 @RestController
 @RequestMapping({"/users"})
@@ -48,8 +41,9 @@ public class Controladorusers {
 	
 	@PostMapping
 	public Paciente agregar(@RequestBody Paciente u) {
-		//agregar logica de generación del token.
 		return service.add(u);
 	}
+	
+	
 
 }

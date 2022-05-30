@@ -25,7 +25,7 @@ public class Paciente {
 	private String email;
 	
 	@Column
-	private String password;
+	private String clave;
 	
 	@Column
 	private LocalDate fecha_nacimiento;
@@ -76,12 +76,12 @@ public class Paciente {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getClave() {
+		return clave;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 	public LocalDate getFechaNacimiento() {
