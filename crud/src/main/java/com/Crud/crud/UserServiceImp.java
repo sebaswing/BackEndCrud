@@ -30,9 +30,9 @@ public class UserServiceImp implements UserService{
 	}
 
 	@Override
-	public Paciente buscarUser(String username) {
+	public Paciente buscarUserDni(int dni) {
 		
-		return repositorio.buscarUser(username);
+		return repositorio.buscarUserDni(dni);
 	}
 
 }

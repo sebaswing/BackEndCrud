@@ -19,9 +19,9 @@ public class Controladorusers {
 	@Autowired
 	UserService service;
 	
-	@GetMapping("/usersLogin/{email}")
-	public Paciente listarTodos(@PathVariable("email") String email){
-		Paciente p= service.listarUser(email);
+	@GetMapping("/userExistdni/{dni}")
+	public Paciente listarTodos(@PathVariable("dni") int dni){
+		Paciente p= service.buscarUserDni(dni);
 		return p;
 	}
 	

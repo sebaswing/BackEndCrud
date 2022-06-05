@@ -12,8 +12,8 @@ import jakarta.mail.internet.MimeMessage;
 
 public class Mails {
 
-	private static String username = "a2afd109cb6249";// Completar con su username de mailtrap
-	private static String password = "6d25b411a8682e";// Completar con su password de mailtrap
+	private static String username = "ae68dcf2cb5784";// Completar con su username de mailtrap
+	private static String password = "cd2ada93762272";// Completar con su password de mailtrap
 	
 	public void mandarMaildeLogin(Paciente p) {
 		try {

@@ -10,8 +10,8 @@ public interface UserRepository extends JpaRepository<Paciente, Integer>{
 			)
 	Paciente listarUser(String email);
 	
-	@Query(value="SELECT * FROM pacientes u WHERE u.email = ?1"
+	@Query(value="SELECT * FROM pacientes u WHERE u.dni = ?1"
 			, nativeQuery = true
 			)
-	Paciente buscarUser(String paciente);
+	Paciente buscarUserDni(int dni);
 }
