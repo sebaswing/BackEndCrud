@@ -34,6 +34,9 @@ public class Paciente {
 	private int token;
 	
 	@Column
+	private int zona;
+	
+	@Column
 	private int completo_vacunas;
 
 	public int getId() {
@@ -107,5 +110,15 @@ public class Paciente {
 	public void setCompleto_vacunas(int completo_vacunas) {
 		this.completo_vacunas = completo_vacunas;
 	}
+
+	public int getZona() {
+		return zona;
+	}
+
+	public void setZona(int zona) {
+		this.zona = zona;
+	}
+	
+	
 	
 }

@@ -12,8 +12,8 @@ public class VacunaServiceImp implements VacunasService{
 	private VacunaRepository repository;
 
 	@Override
-	public List<Vacuna> listarId(int id){
-		return null;
+	public List<Vacuna> listarVacunas(int id){
+		return (List<Vacuna>) repository.listarVacunas(id);
 	}
 
 	@Override

@@ -3,6 +3,6 @@ package com.Crud.crud;
 import java.util.List;
 
 public interface VacunasService {
-	List<Vacuna> listarId(int id);
+	List<Vacuna> listarVacunas(int id);
 	Vacuna add(Vacuna p);
 }
