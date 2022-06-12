@@ -29,4 +29,9 @@ public class ControladorVacuna {
 		return service.listarVacunas(idUser);
 	}
 	
+	@GetMapping("/traerTurnos")
+	public List<Vacuna> buscarFecha () {
+		return service.buscarFecha();
+	}
+	
 }

@@ -1,5 +1,6 @@
 package com.Crud.crud;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class VacunaServiceImp implements VacunasService{
 		return repository.save(v);
 	}
 
+	@Override
+	public List<Vacuna> buscarFecha() {
+		LocalDate fecha=LocalDate.now();
+		return repository.buscarFecha(fecha);
+	}
 
 }
