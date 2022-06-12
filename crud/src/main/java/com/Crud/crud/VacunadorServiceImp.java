@@ -19,7 +19,7 @@ public class VacunadorServiceImp implements VacunadorService{
 	@Override
 	public Vacunador edit(Vacunador u) {
 		// TODO Auto-generated method stub
-		return null;
+		return repositorio.save(u);
 	}
 
 	@Override

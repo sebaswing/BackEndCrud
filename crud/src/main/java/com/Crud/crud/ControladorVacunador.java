@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,4 +38,11 @@ public class ControladorVacunador {
 		Vacunador p= service.listarUser(email);
 		return p;
 	}
+	
+	@PutMapping(path = {"/{id}"})
+	public Vacunador editar (@RequestBody Vacunador p,@PathVariable("id") int id) {
+		p.setId(id);
+		return service.edit(p);
+	}
+
 }
