@@ -14,4 +14,10 @@ public interface UserRepository extends JpaRepository<Paciente, Integer>{
 			, nativeQuery = true
 			)
 	Paciente buscarUserDni(int dni);
+	
+	@Query(value="SELECT * FROM pacientes u WHERE u.id = ?1"
+			, nativeQuery = true
+			)
+	Paciente buscarUserID(int id);
+
 }

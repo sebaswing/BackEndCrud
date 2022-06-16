@@ -29,9 +29,9 @@ public class ControladorVacuna {
 		return service.listarVacunas(idUser);
 	}
 	
-	@GetMapping("/traerTurnos")
-	public List<Vacuna> buscarFecha () {
-		return service.buscarFecha();
+	@GetMapping("traerTurnos/{zona}")
+	public List<Vacuna> buscarFecha (@PathVariable ("zona") int zona) {
+		return service.buscarFecha(zona);
 	}
 	
 }

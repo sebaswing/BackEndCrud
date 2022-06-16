@@ -13,8 +13,8 @@ public interface VacunaRepository extends JpaRepository<Vacuna, Integer>{
 			)
 	List<Vacuna> listarVacunas(int idPaciente);
 	
-	@Query(value="SELECT * FROM vacunaspacientes u WHERE u.fecha_aplicacion = ?1"
+	@Query(value="SELECT * FROM vacunaspacientes u WHERE u.fecha_aplicacion = ?1 and u.zona = ?2 "
 			, nativeQuery = true
 			)
-	List<Vacuna> buscarFecha(LocalDate fecha);
+	List<Vacuna> buscarFecha(LocalDate fecha, int zona);
 }

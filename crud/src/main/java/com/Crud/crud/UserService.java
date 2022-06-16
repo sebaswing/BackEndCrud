@@ -6,4 +6,5 @@ public interface UserService {
 	Paciente edit(Paciente u);
 	Paciente add(Paciente u);
 	Paciente buscarUserDni(int dni);
+	Paciente buscarUserID(int id);
 }

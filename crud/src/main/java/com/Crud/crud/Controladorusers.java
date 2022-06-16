@@ -25,6 +25,12 @@ public class Controladorusers {
 		return p;
 	}
 	
+	@GetMapping("/userID/{id}")
+	public Paciente listarPaciente(@PathVariable("id") int id){
+		Paciente p= service.buscarUserID(id);
+		return p;
+	}
+	
 	@GetMapping("/userExist/{email}")
 	public Paciente buscarUser(@PathVariable("email") String email){
 		Paciente p= service.listarUser(email);

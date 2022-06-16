@@ -34,5 +34,11 @@ public class UserServiceImp implements UserService{
 		
 		return repositorio.buscarUserDni(dni);
 	}
+	
+	@Override
+	public Paciente buscarUserID(int id) {
+		
+		return repositorio.buscarUserID(id);
+	}
 
 }

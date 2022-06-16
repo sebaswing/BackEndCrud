@@ -24,13 +24,13 @@ public class Vacunador {
 	private String email;
 	
 	@Column
-	private String centro_vacunatorio;
+	private int centro_vacunatorio;
 	
-	public String getCentro_vacunatorio() {
+	public int getCentro_vacunatorio() {
 		return centro_vacunatorio;
 	}
 
-	public void setCentro_vacunatorio(String centro_vacunatorio) {
+	public void setCentro_vacunatorio(int centro_vacunatorio) {
 		this.centro_vacunatorio = centro_vacunatorio;
 	}
 

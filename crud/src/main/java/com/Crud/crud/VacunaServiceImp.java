@@ -24,9 +24,9 @@ public class VacunaServiceImp implements VacunasService{
 	}
 
 	@Override
-	public List<Vacuna> buscarFecha() {
+	public List<Vacuna> buscarFecha(int zona) {
 		LocalDate fecha=LocalDate.now();
-		return repository.buscarFecha(fecha);
+		return (List<Vacuna>) repository.buscarFecha(fecha,zona);
 	}
 
 }

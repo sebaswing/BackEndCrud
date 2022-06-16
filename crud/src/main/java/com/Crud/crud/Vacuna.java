@@ -28,6 +28,40 @@ public class Vacuna {
 	
 	@Column
 	private int dosis;
+	
+	@Column
+	private int zona;
+	
+	@Column
+	private int asistio;
+	
+	@Column
+	private String observacion;
+	
+
+	public int getZona() {
+		return zona;
+	}
+
+	public void setZona(int zona) {
+		this.zona = zona;
+	}
+
+	public int getAsistio() {
+		return asistio;
+	}
+
+	public void setAsistio(int asistio) {
+		this.asistio = asistio;
+	}
+
+	public String getObservacion() {
+		return observacion;
+	}
+
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
+	}
 
 	public int getId() {
 		return id;
