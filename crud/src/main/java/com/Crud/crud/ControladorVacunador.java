@@ -27,12 +27,13 @@ public class ControladorVacunador {
 	}
 	
 	@GetMapping("/recuperarClave/{email}")
-	public void mandarClave (@PathVariable("email") String email) {
+	public Vacunador mandarClave (@PathVariable("email") String email) {
 		Vacunador p= service.listarUser(email);
 		if(p!=null) {
 			Mails m = new Mails();
 			m.mandarMaildeRecuperarClave(p);
 		}
+		return p;
 	}
 	
 	@GetMapping("/userExist/{email}")

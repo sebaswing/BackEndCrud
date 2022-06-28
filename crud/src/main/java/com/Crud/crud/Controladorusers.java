@@ -38,12 +38,13 @@ public class Controladorusers {
 	}
 	
 	@GetMapping("/recuperarClave/{email}")
-	public void mandarClave (@PathVariable("email") String email) {
+	public Paciente mandarClave (@PathVariable("email") String email) {
 		Paciente p= service.listarUser(email);
 		if(p!=null) {
 			Mails m = new Mails();
 			m.mandarMaildeRecuperarClave(p);
 		}
+		return p;
 	}
 	
 	@PostMapping

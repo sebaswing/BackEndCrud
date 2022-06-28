@@ -22,6 +22,12 @@ public class VacunaServiceImp implements VacunasService{
 		// TODO Auto-generated method stub
 		return repository.save(v);
 	}
+	
+	@Override
+	public Vacuna editar(Vacuna v) {
+		// TODO Auto-generated method stub
+		return repository.save(v);
+	}
 
 	@Override
 	public List<Vacuna> buscarFecha(int zona) {

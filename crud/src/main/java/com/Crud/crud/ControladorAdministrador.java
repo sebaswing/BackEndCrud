@@ -23,12 +23,13 @@ public class ControladorAdministrador {
 	}
 	
 	@GetMapping("/recuperarClave/{email}")
-	public void mandarClave (@PathVariable("email") String email) {
+	public Administrador mandarClave (@PathVariable("email") String email) {
 		Administrador p= service.listarUser(email);
 		if(p!=null) {
 			Mails m = new Mails();
 			m.mandarMaildeRecuperarClave(p);
 		}
+		return p;
 	}
 	
 	@GetMapping("/userExist/{email}")
