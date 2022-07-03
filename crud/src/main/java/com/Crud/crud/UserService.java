@@ -7,4 +7,5 @@ public interface UserService {
 	Paciente add(Paciente u);
 	Paciente buscarUserDni(int dni);
 	Paciente buscarUserID(int id);
+	void mandarNotificaciones(VacunasService vacunaService);
 }
