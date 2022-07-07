@@ -1,5 +1,7 @@
 package com.Crud.crud;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,6 +20,8 @@ public class Controladorusers {
 	
 	@Autowired
 	UserService service;
+	@Autowired
+	VacunasService vacunaService;
 	
 	@GetMapping("/userExistdni/{dni}")
 	public Paciente listarTodos(@PathVariable("dni") int dni){
@@ -56,6 +60,12 @@ public class Controladorusers {
 	public Paciente editar (@RequestBody Paciente p,@PathVariable("id") int id) {
 		p.setId(id);
 		return service.edit(p);
+	}
+	
+	@GetMapping("traerPersonas")
+	public void mandarNotificaciones () {
+		service.mandarNotificaciones(vacunaService);
+		
 	}
 
 }

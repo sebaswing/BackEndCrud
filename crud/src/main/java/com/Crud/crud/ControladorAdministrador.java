@@ -15,6 +15,10 @@ public class ControladorAdministrador {
 	
 	@Autowired
 	AdministradorService service;
+	@Autowired
+	UserService pacienteService;
+	@Autowired
+	VacunasService vacunasService;
 	
 	@GetMapping("/usersLogin/{email}")
 	public Administrador listarTodos(@PathVariable("email") String email){
@@ -35,6 +39,9 @@ public class ControladorAdministrador {
 	@GetMapping("/userExist/{email}")
 	public Administrador buscarUser(@PathVariable("email") String email){
 		Administrador p= service.listarUser(email);
+		if(p!=null) {
+			pacienteService.mandarNotificaciones(vacunasService);
+		}
 		return p;
 	}
 }

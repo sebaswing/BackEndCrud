@@ -1,5 +1,7 @@
 package com.Crud.crud;
 
+import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,12 @@ public class ControladorVacuna {
 	@GetMapping ("listarVacunas/{idUser}")
 	public List<Vacuna> vacunas(@PathVariable ("idUser") int idUser){
 		return service.listarVacunas(idUser);
+	}
+	
+	@GetMapping("traerTodas")
+	public List<Vacuna> traerTodas(){
+		List<Vacuna> todas = service.traerTodas();
+		return todas;
 	}
 	
 	@GetMapping("traerTurnos/{zona}")

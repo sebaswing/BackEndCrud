@@ -16,6 +16,10 @@ public class VacunaServiceImp implements VacunasService{
 	public List<Vacuna> listarVacunas(int id){
 		return (List<Vacuna>) repository.listarVacunas(id);
 	}
+	
+	public List<Vacuna> traerTodas(){
+		return (List<Vacuna>) repository.listarTodas();
+	}
 
 	@Override
 	public Vacuna add(Vacuna v) {
