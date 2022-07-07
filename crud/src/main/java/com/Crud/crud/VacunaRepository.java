@@ -22,4 +22,14 @@ public interface VacunaRepository extends JpaRepository<Vacuna, Integer>{
 			, nativeQuery = true
 			)
 	List<Vacuna> listarTodas();
+	
+	@Query(value="SELECT * FROM vacunaspacientes u WHERE u.id_usuario = ?1 and u.dosis=2"
+			, nativeQuery = true
+			)
+	Vacuna traer(int id);
+	
+	@Query(value="DELETE FROM vacunaspacientes u WHERE u.id_usuario = ?1 and u.dosis=3"
+			, nativeQuery = true
+			)
+	void borrar(int id);
 }

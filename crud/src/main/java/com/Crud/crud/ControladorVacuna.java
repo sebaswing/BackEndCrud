@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,17 @@ public class ControladorVacuna {
 	@GetMapping("traerTurnos/{zona}")
 	public List<Vacuna> buscarFecha (@PathVariable ("zona") int zona) {
 		return service.buscarFecha(zona);
+	}
+	
+	@PutMapping(path={"borrar/{id}"})
+	public void borrar (@RequestBody Vacuna p,@PathVariable("id") int id) {
+		p.setId(id);
+		service.borrar(id);
+	}
+	
+	@GetMapping("traerTurno/{id}")
+	public Vacuna traer (@PathVariable ("id") int id) {
+		return service.traer(id);
 	}
 	
 	@PutMapping(path={"/{id}"})

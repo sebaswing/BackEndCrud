@@ -17,8 +17,19 @@ public class VacunaServiceImp implements VacunasService{
 		return (List<Vacuna>) repository.listarVacunas(id);
 	}
 	
+	@Override
 	public List<Vacuna> traerTodas(){
 		return (List<Vacuna>) repository.listarTodas();
+	}
+	
+	@Override
+	public Vacuna traer(int id){
+		return repository.traer(id);
+	}
+	
+	@Override
+	public void borrar(int id) {
+		repository.borrar(id);
 	}
 
 	@Override
