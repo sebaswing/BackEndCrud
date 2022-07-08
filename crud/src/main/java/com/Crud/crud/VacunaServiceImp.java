@@ -11,6 +11,9 @@ public class VacunaServiceImp implements VacunasService{
 	
 	@Autowired
 	private VacunaRepository repository;
+	
+	@Autowired
+	private UserService user;
 
 	@Override
 	public List<Vacuna> listarVacunas(int id){
@@ -34,7 +37,11 @@ public class VacunaServiceImp implements VacunasService{
 
 	@Override
 	public Vacuna add(Vacuna v) {
-		// TODO Auto-generated method stub
+		LocalDate hoy = LocalDate.now();
+		Mails m = new Mails();
+		Paciente p = user.buscarUserID(v.getId_usuario());		
+		if(v.getFecha_aplicacion().isAfter(hoy))
+			m.mailFechaDeInscripcionVacuna(v.getNombreVacuna(), p.getEmail() , p.getZona(), v.getDosis(), v.getFecha_aplicacion());
 		return repository.save(v);
 	}
 	

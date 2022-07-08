@@ -11,6 +11,8 @@ public class UserServiceImp implements UserService{
 
 	@Autowired
 	private UserRepository repositorio;
+	@Autowired
+	private ZonaRepository zonaRepo;
 	
 	@Override
 	public Paciente listarUser(String email) {
@@ -46,10 +48,12 @@ public class UserServiceImp implements UserService{
 	
 	public void mandarNotificaciones (VacunasService vacunaService) {
 		List<Vacuna> v = vacunaService.traerTodas();
+		
 		for (Iterator iterator = v.iterator(); iterator.hasNext();) {
 			Vacuna vacuna = (Vacuna) iterator.next();
 			Paciente actual= this.buscarUserID(vacuna.getId_usuario());
-			vacuna.mandarNotificación(actual.getEmail(), actual.getZona());
+			String zonaDeVacuna= zonaRepo.traerNombreDeZona(vacuna.getZona());
+			vacuna.mandarNotificación(actual.getEmail(), zonaDeVacuna);
 		}
 		
 	}

@@ -15,4 +15,9 @@ public class ZonaServiceImp implements ZonaService{
 		return (List<Zona>) repository.listarZonas();
 	}
 	
+	@Override
+	public String getNombreZona(int id){
+		return repository.traerNombreDeZona(id);
+	}
+	
 }

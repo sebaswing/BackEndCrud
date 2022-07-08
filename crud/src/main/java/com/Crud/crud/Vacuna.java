@@ -116,13 +116,14 @@ public class Vacuna {
 		return nombre;
 	}
 	
-	public void mandarNotificación(String mail,int zona) {
+	public void mandarNotificación(String mail,String zona) {
 		LocalDate hoy = LocalDate.now();
 		Mails m = new Mails();
-		if(this.getFecha_aplicacion().getMonthValue()-1==hoy.getMonthValue() && this.getFecha_aplicacion().getDayOfMonth()==hoy.getDayOfMonth()) {
+
+		if(this.getFecha_aplicacion().getMonthValue()==hoy.getMonthValue()-1 && this.getFecha_aplicacion().getDayOfMonth()==hoy.getDayOfMonth()) {
 			m.mailRecordatorioDeMesAntes(this.getNombreVacuna(), mail, zona,this.getDosis());
 		}
-		if(this.getFecha_aplicacion().getMonthValue()==hoy.getMonthValue() && this.getFecha_aplicacion().getDayOfMonth()-1==hoy.getDayOfMonth()) {
+		if(this.getFecha_aplicacion().getMonthValue()==hoy.getMonthValue() && this.getFecha_aplicacion().getDayOfMonth()==hoy.getDayOfMonth()-1) {
 			m.mailRecordatorioDeDiaAntes(this.getNombreVacuna(), mail, zona,this.getDosis());
 		}
 	}

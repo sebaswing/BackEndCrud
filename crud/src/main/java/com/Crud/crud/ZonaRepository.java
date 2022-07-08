@@ -11,4 +11,9 @@ public interface ZonaRepository extends JpaRepository<Zona, Integer>{
 			)
 	List<Zona> listarZonas();
 	
+	@Query(value="SELECT u.ubicacion FROM zona u WHERE u.id=?1"
+			, nativeQuery = true
+			)
+	String traerNombreDeZona(int id);
+	
 }
