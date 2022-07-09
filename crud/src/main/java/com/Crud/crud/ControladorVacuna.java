@@ -3,6 +3,7 @@ package com.Crud.crud;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -44,10 +45,9 @@ public class ControladorVacuna {
 		return service.buscarFecha(zona);
 	}
 	
-	@PutMapping(path={"borrar/{id}"})
-	public void borrar (@RequestBody Vacuna p,@PathVariable("id") int id) {
-		p.setId(id);
-		service.borrar(id);
+	@DeleteMapping(path={"/{id}"})
+	public Optional<Vacuna> borrar (@PathVariable("id") int id) {
+		return service.borrar(id);
 	}
 	
 	@GetMapping("traerTurno/{id}")

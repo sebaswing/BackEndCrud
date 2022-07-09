@@ -28,8 +28,9 @@ public interface VacunaRepository extends JpaRepository<Vacuna, Integer>{
 			)
 	Vacuna traer(int id);
 	
-	@Query(value="DELETE FROM vacunaspacientes u WHERE u.id_usuario = ?1 and u.dosis=3"
+	@Query(value="SELECT * FROM vacunaspacientes u WHERE u.id_usuario = ?1 "
 			, nativeQuery = true
 			)
-	void borrar(int id);
+	Vacuna traerTurno(int id);
+	
 }
