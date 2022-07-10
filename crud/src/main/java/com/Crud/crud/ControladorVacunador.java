@@ -49,6 +49,11 @@ public class ControladorVacunador {
 	}
 	
 	
+	@GetMapping("/listar")
+	public List<Vacunador> listar() {
+		List<Vacunador> vacunadores = service.listarTodos();
+		return vacunadores;
+	}
 
 
 }

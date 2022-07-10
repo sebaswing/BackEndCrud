@@ -34,6 +34,11 @@ public class VacunadorServiceImp implements VacunadorService{
 		return repositorio.buscarUser(username);
 	}
 	
+	@Override
+	public  List<Vacunador> listarTodos(){
+		return (List<Vacunador>) repositorio.listarTodas();
+	}
+	
 	
 
 }

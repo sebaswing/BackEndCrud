@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,4 +39,16 @@ public class ControladorAdministrador {
 		Administrador p= service.listarUser(email);
 		return p;
 	}
+	
+	@PostMapping("/actualizar/{id}")
+	public Administrador edit(@RequestBody Administrador admin, @PathVariable("id") int id) {
+		System.out.println(" ######### actualizar administrador");
+		System.out.print(admin.getId());
+		System.out.print(admin.getEmail());
+		System.out.print(admin.getApellido());
+		System.out.print(admin.getClave());
+		admin.setId(id);
+		return service.edit(admin);
+	}
+	
 }

@@ -1,6 +1,7 @@
 package com.Crud.crud;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public interface VacunadorService {
 	
@@ -8,5 +9,6 @@ public interface VacunadorService {
 	Vacunador edit(Vacunador u);
 	Vacunador add(Vacunador u);
 	Vacunador buscarUser(String username);
+	List<Vacunador> listarTodos();
 	
 }
