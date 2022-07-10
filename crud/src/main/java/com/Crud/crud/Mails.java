@@ -137,7 +137,7 @@ public class Mails {
 	    }
 	}
 
-	public void mailRecordatorioDeMesAntes(String nombreVacuna,String mail,String zona,int dosis) {
+	public void mailRecordatorioDeDiaVacuna(String nombreVacuna,String mail,String zona,int dosis) {
 		try {
 			String from = "noreply@vacunassist.com";
 			String to = mail;
@@ -160,7 +160,7 @@ public class Mails {
 		    message.setFrom(new InternetAddress(from, "VACUNASSIST"));
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 		    message.setSubject("Recuperar de clave");
-		    mensaje=" Queda un mes para tu vacuna de :" + nombreVacuna + ", se dará en la zona ubicada en: " + zona;
+		    mensaje=" hoy se te aplicará tu vacuna :" + nombreVacuna + ", se dará en la zona ubicada en: " + zona;
 		    if(nombreVacuna.equals("Covid"))
 		    	mensaje+= " para tu dosis "+dosis;
 		    message.setText(mensaje);
