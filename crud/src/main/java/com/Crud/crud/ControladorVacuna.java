@@ -1,9 +1,13 @@
 package com.Crud.crud;
 
+import java.time.LocalDate;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,9 +34,25 @@ public class ControladorVacuna {
 		return service.listarVacunas(idUser);
 	}
 	
+	@GetMapping("traerTodas")
+	public List<Vacuna> traerTodas(){
+		List<Vacuna> todas = service.traerTodas();
+		return todas;
+	}
+	
 	@GetMapping("traerTurnos/{zona}")
 	public List<Vacuna> buscarFecha (@PathVariable ("zona") int zona) {
 		return service.buscarFecha(zona);
+	}
+	
+	@DeleteMapping(path={"/{id}"})
+	public Optional<Vacuna> borrar (@PathVariable("id") int id) {
+		return service.borrar(id);
+	}
+	
+	@GetMapping("traerTurno/{id}")
+	public Vacuna traer (@PathVariable ("id") int id) {
+		return service.traer(id);
 	}
 	
 	@PutMapping(path={"/{id}"})

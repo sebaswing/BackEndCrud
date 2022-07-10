@@ -1,5 +1,6 @@
 package com.Crud.crud;
 
+import java.time.LocalDate;
 import java.util.Properties;
 
 import jakarta.mail.Authenticator;
@@ -136,5 +137,105 @@ public class Mails {
 	    }
 	}
 
+	public void mailRecordatorioDeDiaVacuna(String nombreVacuna,String mail,String zona,int dosis) {
+		try {
+			String from = "noreply@vacunassist.com";
+			String to = mail;
+
+			
+			Properties props = new Properties();
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.mailtrap.io");
+			props.put("mail.smtp.port", "587");				 
+			Session session = Session.getInstance(props,
+				new Authenticator() {
+		            protected PasswordAuthentication getPasswordAuthentication() {
+		            	return new PasswordAuthentication(username, password);
+		            }
+			});
+
+		    Message message = new MimeMessage(session);
+		    String mensaje= "";
+		    message.setFrom(new InternetAddress(from, "VACUNASSIST"));
+		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+		    message.setSubject("Recuperar de clave");
+		    mensaje=" hoy se te aplicará tu vacuna :" + nombreVacuna + ", se dará en la zona ubicada en: " + zona;
+		    if(nombreVacuna.equals("Covid"))
+		    	mensaje+= " para tu dosis "+dosis;
+		    message.setText(mensaje);
+		    Transport.send(message);
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+	    }
+	}
+	public void mailRecordatorioDeDiaAntes(String nombreVacuna,String mail,String zona,int dosis) {
+		try {
+			String from = "noreply@vacunassist.com";
+			String to = mail;
+
+			
+			Properties props = new Properties();
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.mailtrap.io");
+			props.put("mail.smtp.port", "587");				 
+			Session session = Session.getInstance(props,
+				new Authenticator() {
+		            protected PasswordAuthentication getPasswordAuthentication() {
+		            	return new PasswordAuthentication(username, password);
+		            }
+			});
+
+		    Message message = new MimeMessage(session);
+		    String mensaje= "";
+		    message.setFrom(new InternetAddress(from, "VACUNASSIST"));
+		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+		    message.setSubject("Recuperar de clave");
+		    mensaje=" Mañana es el día de tu vacuna de :" + nombreVacuna + ", se dará en la zona ubicada en: " + zona;
+		    if(nombreVacuna.equals("Covid"))
+		    	mensaje+= " para tu dosis "+dosis;
+		    message.setText(mensaje);
+		    Transport.send(message);
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+	    }
+	}
+	
+	public void mailFechaDeInscripcionVacuna(String nombreVacuna,String mail,int zona,int dosis,LocalDate fecha) {
+		try {
+			String from = "noreply@vacunassist.com";
+			String to = mail;
+
+			
+			Properties props = new Properties();
+			props.put("mail.smtp.auth", "true");
+			props.put("mail.smtp.starttls.enable", "true");
+			props.put("mail.smtp.host", "smtp.mailtrap.io");
+			props.put("mail.smtp.port", "587");				 
+			Session session = Session.getInstance(props,
+				new Authenticator() {
+		            protected PasswordAuthentication getPasswordAuthentication() {
+		            	return new PasswordAuthentication(username, password);
+		            }
+			});
+
+		    Message message = new MimeMessage(session);
+		    String mensaje= "";
+		    message.setFrom(new InternetAddress(from, "VACUNASSIST"));
+		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+		    message.setSubject("Recuperar de clave");
+		    mensaje= "el día : " +fecha + " es el día de tu vacuna de : " + nombreVacuna + ", se dará en la zona: " + zona;
+		    if(nombreVacuna.equals("Covid"))
+		    	mensaje+= " para tu dosis "+dosis;
+		    message.setText(mensaje);
+		    Transport.send(message);
+		}
+		catch (Exception e) {
+			throw new RuntimeException(e);
+	    }
+	}
 	
 }

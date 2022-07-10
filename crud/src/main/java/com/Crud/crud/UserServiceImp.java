@@ -1,5 +1,8 @@
 package com.Crud.crud;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +11,8 @@ public class UserServiceImp implements UserService{
 
 	@Autowired
 	private UserRepository repositorio;
+	@Autowired
+	private ZonaRepository zonaRepo;
 	
 	@Override
 	public Paciente listarUser(String email) {
@@ -39,6 +44,18 @@ public class UserServiceImp implements UserService{
 	public Paciente buscarUserID(int id) {
 		
 		return repositorio.buscarUserID(id);
+	}
+	
+	public void mandarNotificaciones (VacunasService vacunaService) {
+		List<Vacuna> v = vacunaService.traerTodas();
+		
+		for (Iterator iterator = v.iterator(); iterator.hasNext();) {
+			Vacuna vacuna = (Vacuna) iterator.next();
+			Paciente actual= this.buscarUserID(vacuna.getId_usuario());
+			String zonaDeVacuna= zonaRepo.traerNombreDeZona(vacuna.getZona());
+			vacuna.mandarNotificación(actual.getEmail(), zonaDeVacuna);
+		}
+		
 	}
 
 }

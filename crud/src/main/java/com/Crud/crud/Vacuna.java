@@ -27,10 +27,10 @@ public class Vacuna {
 	private LocalDate fecha_aplicacion;
 	
 	@Column
-	private int dosis;
+	private int zona;
 	
 	@Column
-	private int zona;
+	private int dosis;
 	
 	@Column
 	private int asistio;
@@ -101,6 +101,31 @@ public class Vacuna {
 
 	public void setDosis(int dosis) {
 		this.dosis = dosis;
+	}
+	
+	public String getNombreVacuna() {
+		String nombre = "";
+		switch(this.id_vacuna) {
+			case 1: nombre = "Gripe Común" ;
+					break;
+			case 2:nombre = "Covid";
+					break;
+			case 3:nombre = "fiebre Amarilla";			
+					break;
+		}
+		return nombre;
+	}
+	
+	public void mandarNotificación(String mail,String zona) {
+		LocalDate hoy = LocalDate.now();
+		Mails m = new Mails();
+
+		if(this.getFecha_aplicacion().getMonthValue()==hoy.getMonthValue() && this.getFecha_aplicacion().getDayOfMonth()==hoy.getDayOfMonth()) {
+			m.mailRecordatorioDeDiaVacuna(this.getNombreVacuna(), mail, zona,this.getDosis());
+		}
+		if(this.getFecha_aplicacion().getMonthValue()==hoy.getMonthValue() && this.getFecha_aplicacion().getDayOfMonth()==hoy.getDayOfMonth()-1) {
+			m.mailRecordatorioDeDiaAntes(this.getNombreVacuna(), mail, zona,this.getDosis());
+		}
 	}
 
 }
