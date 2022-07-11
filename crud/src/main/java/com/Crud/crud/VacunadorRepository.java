@@ -18,10 +18,16 @@ public interface VacunadorRepository extends JpaRepository<Vacunador, Integer>{
 			)
 	Vacunador buscarUser(String vacunador);
 	
-	@Query(value="SELECT * FROM vacunadores u"
+	@Query(value="SELECT * FROM vacunadores u where borrado = 0"
 			,nativeQuery = true
 			)
 	List<Vacunador> listarTodas();
 	
+	@Query(value="SELECT COUNT(*) FROM vacunadores WHERE centro_vacunatorio = ?1 and borrado = 0",
+			nativeQuery = true)
+		int cantVacunadoresZona(int id);
 	
+	@Query(value="SELECT * FROM vacunadores u WHERE u.dni = ?1 and borrado = 0",
+			nativeQuery = true)
+	Vacunador dniVacunador(int dni);
 }

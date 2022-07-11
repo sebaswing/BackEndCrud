@@ -20,4 +20,8 @@ public class ZonaServiceImp implements ZonaService{
 		return repository.traerNombreDeZona(id);
 	}
 	
+	@Override
+	public Zona edit(Zona z){
+		return repository.save(z) ;
+	}
 }

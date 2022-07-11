@@ -24,8 +24,9 @@ public class VacunadorServiceImp implements VacunadorService{
 	}
 
 	@Override
-	public Vacunador add(Vacunador u) {
-		return null;
+	public Vacunador add(Vacunador v) {
+		
+		return repositorio.save(v);
 	}
 
 	@Override
@@ -39,6 +40,15 @@ public class VacunadorServiceImp implements VacunadorService{
 		return (List<Vacunador>) repositorio.listarTodas();
 	}
 	
+	@Override
+	public int cantVacunadoresZona(int id) {
+		return repositorio.cantVacunadoresZona(id);
+	}
+	
+	@Override
+	public Vacunador buscarDni(int dni){
+		return repositorio.dniVacunador(dni);
+	}
 	
 
 }

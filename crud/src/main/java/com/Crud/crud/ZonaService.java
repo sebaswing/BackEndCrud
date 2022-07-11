@@ -8,5 +8,7 @@ public interface ZonaService {
 
 	String getNombreZona(int id);
 	
+	Zona edit(Zona z);
+	
 	
 }

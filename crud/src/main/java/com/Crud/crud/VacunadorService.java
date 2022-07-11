@@ -10,5 +10,7 @@ public interface VacunadorService {
 	Vacunador add(Vacunador u);
 	Vacunador buscarUser(String username);
 	List<Vacunador> listarTodos();
+	int cantVacunadoresZona(int id);
+	Vacunador buscarDni(int dni);
 	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,6 +55,22 @@ public class ControladorVacunador {
 		List<Vacunador> vacunadores = service.listarTodos();
 		return vacunadores;
 	}
+	
+	@GetMapping("/VacunadorPorZona/{idZona}")
+	public int cantVacunadoresporZona(@PathVariable("idZona") int id ) {
+		return service.cantVacunadoresZona(id);
+	}
 
+	@PostMapping("/crearVacunador")
+	public Vacunador crearVacunador(@RequestBody Vacunador v) {
+		return service.add(v);
+	}
+	
+	@GetMapping("/existeDNI/{dni}")
+	public Vacunador buscarxDni(@PathVariable("dni") int dni ) {
+		Vacunador v = service.buscarDni(dni);
+		return v;
+	}
+	
 
 }
